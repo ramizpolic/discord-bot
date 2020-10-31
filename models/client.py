@@ -1,6 +1,7 @@
 import discord
 import asyncio
 import re
+import time
 
 # formats
 from models.msg import msg
@@ -37,7 +38,7 @@ class DiscordClient(discord.Client):
         msg.print(f"  [bold]Total: [orange3]{len(users)}")
         await self.logout()
 
-    async def notify(self, filter, filepath):
+    async def notify(self, filter, filepath, delay):
         """[CLI] Sends formatted message to guild users matching provided filters"""
         await self.wait_until_ready()
         try:
@@ -56,7 +57,7 @@ class DiscordClient(discord.Client):
 
             # send messages
             if should_send:
-                success = await self.notify_users(users, text)
+                success = await self.notify_users(users, text, delay)
                 msg.print("")
                 msg.success(f"Successfully sent messages to [orange3]{success}/{len(users)}[/orange3] users.")
             else:
@@ -68,13 +69,14 @@ class DiscordClient(discord.Client):
 
         await self.logout()
 
-    async def notify_users(self, users, text):
+    async def notify_users(self, users, text, delay):
         """Sends private message to all provided users"""
         success = 0
         for user in track(users, description="[bright_black]  Sending private messages..."):
             try:
                 message = text.replace("__USERNAME__", user.mention)
                 await user.send(message)
+                time.sleep(delay)
                 success += 1
             except Exception:
                 pass

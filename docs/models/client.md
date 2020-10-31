@@ -25,10 +25,10 @@ Classes
     `list_users(self, filter)`
     :   Prints users from all Discord guilds matching provided filters
 
-    `notify(self, filter, filepath)`
+    `notify(self, filter, filepath, delay)`
     :   [CLI] Sends formatted message to guild users matching provided filters
 
-    `notify_users(self, users, text)`
+    `notify_users(self, users, text, delay)`
     :   Sends private message to all provided users
 
     `work(self, *args, **kwargs)`

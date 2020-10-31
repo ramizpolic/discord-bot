@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-VERSION = "v1.0.0"
+VERSION = "v1.1.0"
 AUTHOR = "Ramiz Polic (fhivemind)"
 
 import click
@@ -103,10 +103,12 @@ $ cli.exe list --name "Example.*"
 @cli.command(short_help="Sends formatted message to guild users matching provided filters")
 @click.option('--name', default=".*", help='Regex guild name filter (default: .*)')
 @click.option('--file', default="MESSAGE.md", type=click.Path(exists=True), help='File containing message that will be sent to users (default: MESSAGE.md)')
-def notify(name, file):
+@click.option('--delay', type=float, default=0.05, help='Wait for this long before sending a new message (in seconds, default: 0.05)')
+def notify(name, file, delay):
     """Sends private messages to users you can interact with. You can filter which
 users it should send the message to based on the guild they are part of. 
 Before it starts sending private messages, it will for your confirmation.
+If you send too many messages in a row, Discord might disable your access for some time.
 
 \b
 Notes:
@@ -122,13 +124,19 @@ For example:
 $ cli.py notify
 
 \b
+### Sends private message formatted as MESSAGES.md to
+### all users you can interact with across all guilds
+### waiting for 1.5 second between sending new messages.
+$ cli.py notify --delay=1.5
+
+\b
 ### Sends private message formatted as MESSAGES.md to all users
 ### you can interact with across all guilds whose name matches
 ### provided regex.
 $ cli.py notify --name "Example.*"
 ```
 """
-    dc.loop.create_task(dc.notify(name, file))
+    dc.loop.create_task(dc.notify(name, file, delay))
     dc.work(TOKEN, bot=None)
 
 if __name__ == '__main__':
