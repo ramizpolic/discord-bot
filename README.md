@@ -10,6 +10,7 @@ It **strongly advised** to read the whole document before running any commands.
 - [📖 Requirements](#-requirements)
 - [💭 Usage](#-usage)
   - [Source](#source)
+  - [Docker](#docker)
   - [Binaries](#binaries)
   - [Building procedures](#building-procedures)
 - [🔍 Documentation](#-documentation)
@@ -40,6 +41,19 @@ $ python -m pip install -r requirements.txt
 
 ### Verify
 $ python cli.py info
+
+🎯 Environment information
+
+   Version: v1.0.0
+   Author: Ramiz Polic (fhivemind)
+
+```
+
+### Docker
+You can also run `discord-bot` as Docker executable, by running following:
+```bash
+$ alias discord-bot="docker run fhivemind/discord-bot:1.0.0"
+$ discord-bot info
 
 🎯 Environment information
 
