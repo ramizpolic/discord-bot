@@ -3,7 +3,7 @@ import asyncio
 import re
 
 # formats
-from .msg import msg
+from models.msg import msg
 from rich.table import Table
 from rich.progress import track
 from rich.panel import Panel
