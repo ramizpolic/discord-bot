@@ -2,6 +2,7 @@ from rich.console import Console
 console = Console()
 
 class msg:
+    """Handles cli logging controller"""
     @staticmethod
     def title(text):
         console.print(f'\n🎯 [underline bold white on bright_black]{text}\n')
