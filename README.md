@@ -40,11 +40,11 @@ $ cd discord-bot
 $ python -m pip install -r requirements.txt
 
 ### Verify
-$ python cli.py info
+$ python discord-bot.py info
 
 🎯 Environment information
 
-   Version: v1.1.0
+   Version: v1.2.0
    Author: Ramiz Polic (fhivemind)
 
 ```
@@ -52,12 +52,12 @@ $ python cli.py info
 ### Docker
 You can also run `discord-bot` as Docker executable, by running following:
 ```bash
-$ alias discord-bot="docker run fhivemind/discord-bot:1.1.0"
+$ alias discord-bot="docker run fhivemind/discord-bot:1.2.0"
 $ discord-bot info
 
 🎯 Environment information
 
-   Version: v1.1.0
+   Version: v1.2.0
    Author: Ramiz Polic (fhivemind)
 
 ```
@@ -67,11 +67,11 @@ You can find all the binaries under **[release](https://github.com/fhivemind/dis
 
 Launch your OS native shell in the same folder where the binary is located and verify the installation:
 ```bash
-$ cli info
+$ discord-bot info
 
 🎯 Environment information
 
-   Version: v1.1.0
+   Version: v1.2.0
    Author: Ramiz Polic (fhivemind)
 
 ```
@@ -96,4 +96,4 @@ Format | Value
 ---
 
 * **Auhor:** Ramiz Polic (fhivemind)
-* **Version:** v1.1.0
+* **Version:** v1.2.0

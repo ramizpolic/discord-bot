@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-VERSION = "v1.1.0"
+VERSION = "v1.2.0"
 AUTHOR = "Ramiz Polic (fhivemind)"
 
 import click
@@ -32,7 +32,7 @@ Discord CLI bot that programmatically controls user events.
 It allows advanced control of Discord APIs for provided user.
 Initially, you will have to authenticate user by providing a valid token via
 
-$ ./cli.py auth
+$ ./discord-bot.py auth
 
 \b
 Usages:
@@ -73,8 +73,8 @@ To obtain the login token, follow this [guide](https://bit.ly/31Vcno0).
 \b
 Example:
 ```
-$ cli.py login
-$ cli.py login --token="YOUR TOKEN"
+$ discord-bot.py login
+$ discord-bot.py login --token="YOUR TOKEN"
 ```
 """
     dc.loop.create_task(dc.auth(token))
@@ -82,7 +82,8 @@ $ cli.py login --token="YOUR TOKEN"
 
 @cli.command(short_help="Lists guild users matching provided filters")
 @click.option('--name', default=".*", help='Regex guild name filter (default: .*)')
-def list(name):
+@click.option('--check-dm', is_flag=True, help='Checks if you can send direct messages to users (default: False)')
+def list(name, check_dm):
     """Shows which users you can interact with based on the guilds your user account is part of. You can filter which
 users to show based on the guild they are part of.
 
@@ -90,20 +91,20 @@ users to show based on the guild they are part of.
 Example:
 ```bash
 ### Shows all users you can interact with across all guilds.
-$ cli.exe list
+$ discord-bot.exe list
 \b
 ### Shows all users you can interact with across all guilds whose
 ### name regex matches "Example.*".
-$ cli.exe list --name "Example.*"
+$ discord-bot.exe list --name "Example.*"
 ```
 """
-    dc.loop.create_task(dc.list(name))
+    dc.loop.create_task(dc.list(name, check_dm))
     dc.work(TOKEN, bot=None)
 
 @cli.command(short_help="Sends formatted message to guild users matching provided filters")
 @click.option('--name', default=".*", help='Regex guild name filter (default: .*)')
 @click.option('--file', default="MESSAGE.md", type=click.Path(exists=True), help='File containing message that will be sent to users (default: MESSAGE.md)')
-@click.option('--delay', type=float, default=0.05, help='Wait for this long before sending a new message (in seconds, default: 0.05)')
+@click.option('--delay', type=float, default=1.0, help='Wait for this long before sending a new message (in seconds, default: 1.0)')
 def notify(name, file, delay):
     """Sends private messages to users you can interact with. You can filter which
 users it should send the message to based on the guild they are part of. 
@@ -121,19 +122,19 @@ For example:
 ```bash
 ### Sends private message formatted as MESSAGES.md to
 ### all users you can interact with across all guilds.
-$ cli.py notify
+$ discord-bot.py notify
 
 \b
 ### Sends private message formatted as MESSAGES.md to
 ### all users you can interact with across all guilds
 ### waiting for 1.5 second between sending new messages.
-$ cli.py notify --delay=1.5
+$ discord-bot.py notify --delay=1.5
 
 \b
 ### Sends private message formatted as MESSAGES.md to all users
 ### you can interact with across all guilds whose name matches
 ### provided regex.
-$ cli.py notify --name "Example.*"
+$ discord-bot.py notify --name "Example.*"
 ```
 """
     dc.loop.create_task(dc.notify(name, file, delay))

@@ -3,7 +3,7 @@
 block_cipher = None
 
 
-a = Analysis(['cli.py'],
+a = Analysis(['discord-bot.py'],
              pathex=['D:\\linux\\repos\\discord-bot'],
              binaries=[],
              datas=[],
@@ -23,7 +23,7 @@ exe = EXE(pyz,
           a.zipfiles,
           a.datas,
           [],
-          name='cli',
+          name='discord-bot',
           debug=False,
           bootloader_ignore_signals=False,
           strip=False,
