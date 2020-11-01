@@ -40,7 +40,7 @@ $ cd discord-bot
 $ python -m pip install -r requirements.txt
 
 ### Verify
-$ python cli.py info
+$ python discord-bot.py info
 
 🎯 Environment information
 
@@ -67,7 +67,7 @@ You can find all the binaries under **[release](https://github.com/fhivemind/dis
 
 Launch your OS native shell in the same folder where the binary is located and verify the installation:
 ```bash
-$ cli info
+$ discord-bot info
 
 🎯 Environment information
 

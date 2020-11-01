@@ -33,4 +33,5 @@ class msg:
 
     @staticmethod
     def item(name, value):
-        console.print(f'   [bold]{name}: [/]{value}')
+        console.print(f'   [bold]{name}', end=": ")
+        print(value)

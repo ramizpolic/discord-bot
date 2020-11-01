@@ -32,7 +32,7 @@ Discord CLI bot that programmatically controls user events.
 It allows advanced control of Discord APIs for provided user.
 Initially, you will have to authenticate user by providing a valid token via
 
-$ ./cli.py auth
+$ ./discord-bot.py auth
 
 \b
 Usages:
@@ -73,8 +73,8 @@ To obtain the login token, follow this [guide](https://bit.ly/31Vcno0).
 \b
 Example:
 ```
-$ cli.py login
-$ cli.py login --token="YOUR TOKEN"
+$ discord-bot.py login
+$ discord-bot.py login --token="YOUR TOKEN"
 ```
 """
     dc.loop.create_task(dc.auth(token))
@@ -91,11 +91,11 @@ users to show based on the guild they are part of.
 Example:
 ```bash
 ### Shows all users you can interact with across all guilds.
-$ cli.exe list
+$ discord-bot.exe list
 \b
 ### Shows all users you can interact with across all guilds whose
 ### name regex matches "Example.*".
-$ cli.exe list --name "Example.*"
+$ discord-bot.exe list --name "Example.*"
 ```
 """
     dc.loop.create_task(dc.list(name, check_dm))
@@ -122,19 +122,19 @@ For example:
 ```bash
 ### Sends private message formatted as MESSAGES.md to
 ### all users you can interact with across all guilds.
-$ cli.py notify
+$ discord-bot.py notify
 
 \b
 ### Sends private message formatted as MESSAGES.md to
 ### all users you can interact with across all guilds
 ### waiting for 1.5 second between sending new messages.
-$ cli.py notify --delay=1.5
+$ discord-bot.py notify --delay=1.5
 
 \b
 ### Sends private message formatted as MESSAGES.md to all users
 ### you can interact with across all guilds whose name matches
 ### provided regex.
-$ cli.py notify --name "Example.*"
+$ discord-bot.py notify --name "Example.*"
 ```
 """
     dc.loop.create_task(dc.notify(name, file, delay))
