@@ -109,9 +109,19 @@ class DiscordClient(discord.Client):
 
         return set()
 
-    async def get_users(self, filter, print_guild=False):
+    async def get_users(self, filter, should_print=False):
         """Fetches users from all Discord guilds matching provided filters"""
+        if should_print:
+            msg.subtitle("Guilds")
+
         users = set()
+        for guild in self.guilds:
+            if re.match(filter, guild.name):
+                if should_print:
+                    msg.listitem(guild.name)
+                for channel in guild.channels:
+                    users |= await self.get_channel_users(channel)
+        return users
         try:
             if print_guild:
                 msg.subtitle("Guilds")
@@ -125,8 +135,15 @@ class DiscordClient(discord.Client):
                                 users.add(message.author)
                                 users.update(message.mentions)
 
+    async def get_channel_users(self, channel):
+        """Returns a set of users that interacted inside a channel."""
+        users = set()
+        try:
+            if channel.type == discord.ChannelType.text:
+                async for message in channel.history():
+                    users.add(message.author)
+                    users.update(message.mentions)
         except Exception as e:
-            msg.error(e)
             pass
 
         return users
