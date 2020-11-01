@@ -16,13 +16,19 @@ Classes
     `auth(self, token)`
     :   [CLI] Authenticates client agains Discord API using provided token
 
-    `get_users(self, filter, print_guild=False)`
+    `can_dm_user(self, user)`
+    :   Checks if you can interact with the user.
+
+    `get_channel_users(self, channel)`
+    :   Returns a set of users that interacted inside a channel.
+
+    `get_users(self, filter, should_print=False)`
     :   Fetches users from all Discord guilds matching provided filters
 
-    `list(self, filter)`
+    `list(self, filter, check_dm)`
     :   [CLI] Lists guild users matching provided filters
 
-    `list_users(self, filter)`
+    `list_users(self, filter, check_dm=False)`
     :   Prints users from all Discord guilds matching provided filters
 
     `notify(self, filter, filepath, delay)`
