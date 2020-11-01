@@ -44,7 +44,7 @@ $ python cli.py info
 
 🎯 Environment information
 
-   Version: v1.1.0
+   Version: v1.2.0
    Author: Ramiz Polic (fhivemind)
 
 ```
@@ -52,12 +52,12 @@ $ python cli.py info
 ### Docker
 You can also run `discord-bot` as Docker executable, by running following:
 ```bash
-$ alias discord-bot="docker run fhivemind/discord-bot:1.1.0"
+$ alias discord-bot="docker run fhivemind/discord-bot:1.2.0"
 $ discord-bot info
 
 🎯 Environment information
 
-   Version: v1.1.0
+   Version: v1.2.0
    Author: Ramiz Polic (fhivemind)
 
 ```
@@ -71,7 +71,7 @@ $ cli info
 
 🎯 Environment information
 
-   Version: v1.1.0
+   Version: v1.2.0
    Author: Ramiz Polic (fhivemind)
 
 ```
@@ -96,4 +96,4 @@ Format | Value
 ---
 
 * **Auhor:** Ramiz Polic (fhivemind)
-* **Version:** v1.1.0
+* **Version:** v1.2.0
