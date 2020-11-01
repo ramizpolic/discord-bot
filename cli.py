@@ -82,7 +82,8 @@ $ cli.py login --token="YOUR TOKEN"
 
 @cli.command(short_help="Lists guild users matching provided filters")
 @click.option('--name', default=".*", help='Regex guild name filter (default: .*)')
-def list(name):
+@click.option('--check-dm', is_flag=True, help='Checks if you can send direct messages to users (default: False)')
+def list(name, check_dm):
     """Shows which users you can interact with based on the guilds your user account is part of. You can filter which
 users to show based on the guild they are part of.
 
@@ -97,13 +98,13 @@ $ cli.exe list
 $ cli.exe list --name "Example.*"
 ```
 """
-    dc.loop.create_task(dc.list(name))
+    dc.loop.create_task(dc.list(name, check_dm))
     dc.work(TOKEN, bot=None)
 
 @cli.command(short_help="Sends formatted message to guild users matching provided filters")
 @click.option('--name', default=".*", help='Regex guild name filter (default: .*)')
 @click.option('--file', default="MESSAGE.md", type=click.Path(exists=True), help='File containing message that will be sent to users (default: MESSAGE.md)')
-@click.option('--delay', type=float, default=0.05, help='Wait for this long before sending a new message (in seconds, default: 0.05)')
+@click.option('--delay', type=float, default=1.0, help='Wait for this long before sending a new message (in seconds, default: 1.0)')
 def notify(name, file, delay):
     """Sends private messages to users you can interact with. You can filter which
 users it should send the message to based on the guild they are part of. 

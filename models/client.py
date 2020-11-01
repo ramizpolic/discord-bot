@@ -31,10 +31,10 @@ class DiscordClient(discord.Client):
         msg.success("Successfully logged in!")
         await self.logout()
 
-    async def list(self, filter):
+    async def list(self, filter, check_dm):
         """[CLI] Lists guild users matching provided filters"""
         await self.wait_until_ready()
-        users = await self.list_users(filter)
+        users = await self.list_users(filter, check_dm)
         msg.print(f"  [bold]Total: [orange3]{len(users)}")
         await self.logout()
 
@@ -72,7 +72,7 @@ class DiscordClient(discord.Client):
     async def notify_users(self, users, text, delay):
         """Sends private message to all provided users"""
         success = 0
-        for user in track(users, description="[bright_black]  Sending private messages..."):
+        for user in track(users, transient=True, description="[bright_black]  Sending private messages..."):
             try:
                 message = text.replace("__USERNAME__", user.mention)
                 await user.send(message)
@@ -82,7 +82,7 @@ class DiscordClient(discord.Client):
                 pass
         return success
 
-    async def list_users(self, filter):
+    async def list_users(self, filter, check_dm=False):
         """Prints users from all Discord guilds matching provided filters"""
         try:
             # filter
@@ -94,12 +94,19 @@ class DiscordClient(discord.Client):
             table = Table()
             table.add_column("ID", justify="right", style="cyan", no_wrap=True)
             table.add_column("Name", style="magenta bold")
-            table.add_column("Type", justify="right", style="green")
+            table.add_column("Type", justify="right", style="orange3")
+            if check_dm:
+                table.add_column("DM?", justify="right", style="green")
 
-            for user in users:
-                table.add_row(str(user.id), user.name, "[red]Bot" if user.bot else "User")
-            
-            # print users
+            for user in track(users, transient=True, description="[bright_black]  Fetching users..."):
+                # create row data
+                row = [str(user.id), user.name, "[bright_black]Bot" if user.bot else "User"]
+                if check_dm:
+                    row.append("Yes" if await self.can_dm_user(user) else "[red]No")
+
+                # append
+                table.add_row(*row)
+
             msg.print(table)
             return users
 
@@ -122,18 +129,16 @@ class DiscordClient(discord.Client):
                 for channel in guild.channels:
                     users |= await self.get_channel_users(channel)
         return users
+
+    async def can_dm_user(self, user):
+        """Checks if you can interact with the user."""
         try:
-            if print_guild:
-                msg.subtitle("Guilds")
-            for guild in self.guilds:
-                if re.match(filter, guild.name):
-                    if print_guild:
-                        msg.listitem(guild.name)
-                    for channel in guild.channels:
-                        if channel.type == discord.ChannelType.text:
-                            async for message in channel.history():
-                                users.add(message.author)
-                                users.update(message.mentions)
+            message = await user.send("Hi")
+            await message.delete()
+            time.sleep(1)
+        except Exception as e:
+            return False
+        return True
 
     async def get_channel_users(self, channel):
         """Returns a set of users that interacted inside a channel."""
