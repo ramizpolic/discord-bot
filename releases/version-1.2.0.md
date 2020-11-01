@@ -10,6 +10,7 @@ Mass user spam bot for Discord written in Python. For more details, refer to [RE
 ---
 
 ### :checkered_flag: What's new?
+* **[`5340370`](https://github.com/fhivemind/discord-bot/commit/5340370d10e8edcb6e4861566f2569b3102259f4)**  src: fix releases
 * **[`706eb4f`](https://github.com/fhivemind/discord-bot/commit/706eb4fc875c1b9d348f12bc8dcdaab986acc819)**  add v1.2.0 release notes
 * **[`3f24fb0`](https://github.com/fhivemind/discord-bot/commit/3f24fb0ce17a6e8123f301d95c16d43c4944b0d6)**  add release procedures
 * **[`b08a2a3`](https://github.com/fhivemind/discord-bot/commit/b08a2a35e2ecb6e8263664afc8a70aef0fadd002)**  scr: fix naming to discord-bot
@@ -19,7 +20,6 @@ Mass user spam bot for Discord written in Python. For more details, refer to [RE
 * **[`adf46fc`](https://github.com/fhivemind/discord-bot/commit/adf46fc7ddc5e901381db89e824b24131fcea34c)**  src: fix #1
 
 ### :busts_in_silhouette: Committers:
-* [Ramiz Polić](https://github.com/Ramiz Polić)
 * [fhivemind](https://github.com/fhivemind)
 
 ---
