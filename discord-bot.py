@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-VERSION = "v1.2.0"
+VERSION = "v1.2.1"
 AUTHOR = "Ramiz Polic (fhivemind)"
 
 import click
