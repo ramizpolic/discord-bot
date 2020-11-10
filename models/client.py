@@ -8,7 +8,7 @@ from models.msg import msg
 from rich.table import Table
 from rich.progress import track
 from rich.panel import Panel
-from rich.prompt import Confirm
+from rich import print
 
 class DiscordClient(discord.Client):
     """Handles Discord client logic."""
@@ -53,7 +53,9 @@ class DiscordClient(discord.Client):
             msg.title("Message format")
             msg.print(Panel.fit(text))
             msg.print("")
-            should_send = Confirm.ask(f"[bold orange3]?[/][bold white] Are you sure you want to send this message to [orange3]{len(users)}[/orange3] users?")
+
+            print(f"[bold orange3]?[/][bold white] Are you sure you want to send this message to [orange3]{len(users)}[/orange3] users?", end=" ")
+            should_send = input().upper() == "Y"
 
             # send messages
             if should_send:
