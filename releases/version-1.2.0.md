@@ -34,7 +34,7 @@ Once you have downloaded the package binaries, to get started, run following:
 >  discord-bot login
 
 ## Send messages
->  echo "Hello __USERNAME__, I'm a bot." > MESSAGE.md
+>  echo "Hello __USERNAME__, I'm a bot." > FORMAT.md
 >  discord-bot notify
 ```
 

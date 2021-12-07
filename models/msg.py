@@ -24,6 +24,10 @@ class msg:
         console.print(f'⚠️ [bright_black italic]{text}')
 
     @staticmethod
+    def info(text):
+        console.print(f' [bright_black italic]{text}')
+
+    @staticmethod
     def print(text):
         console.print(text)
 

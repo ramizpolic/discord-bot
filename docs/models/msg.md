@@ -12,6 +12,9 @@ Classes
     `error(text)`
     :
 
+    `info(text)`
+    :
+
     `item(name, value)`
     :
 

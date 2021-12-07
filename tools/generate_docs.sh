@@ -16,6 +16,6 @@ for filename in $(find . -type f -name "*.py" -print); do
     if [ "$f" != "__init__" ]; then
         echo "Processing: $filename"
         mkdir -p $folder
-        pdoc3 $filename > $file.md
+        python3 -m pdoc $filename > $file.md
     fi
 done

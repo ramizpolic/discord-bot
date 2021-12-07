@@ -40,11 +40,11 @@ $ cd discord-bot
 $ python -m pip install -r requirements.txt
 
 ### Verify
-$ python discord-bot.py info
+$ python discord-bot info
 
 🎯 Environment information
 
-   Version: v1.2.1
+   Version: v1.2.2
    Author: Ramiz Polic (fhivemind)
 
 ```
@@ -52,12 +52,12 @@ $ python discord-bot.py info
 ### Docker
 You can also run `discord-bot` as Docker executable, by running following:
 ```bash
-$ alias discord-bot="docker run fhivemind/discord-bot:1.2.1"
+$ alias discord-bot="docker run fhivemind/discord-bot:1.2.2"
 $ discord-bot info
 
 🎯 Environment information
 
-   Version: v1.2.1
+   Version: v1.2.2
    Author: Ramiz Polic (fhivemind)
 
 ```
@@ -71,7 +71,7 @@ $ discord-bot info
 
 🎯 Environment information
 
-   Version: v1.2.1
+   Version: v1.2.2
    Author: Ramiz Polic (fhivemind)
 
 ```
@@ -83,7 +83,7 @@ You can build the library by simply running `make`. This will generate OS-specif
 Short list about available CLI commands and their usages is available under [docs](docs) folder.
 
 ## 💬 Message format
-The format of the private messages that will be sent to users is defined by **[MESSAGE.md](MESSAGE.md)**. 
+The format of the private messages that will be sent to users is defined by **[FORMAT.md](FORMAT.md)**. 
 To add your custom message, update this file. 
 
 All attributes formatted as `__ATTR__` will be replaced by their respective definition value.     
@@ -96,4 +96,4 @@ Format | Value
 ---
 
 * **Auhor:** Ramiz Polic (fhivemind)
-* **Version:** v1.2.1
+* **Version:** v1.2.2
