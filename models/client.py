@@ -138,7 +138,6 @@ class DiscordClient(discord.Client):
                 pass
         return success
 
-
     async def list_users(self, server, depth, check_dm=False, delay=1.0):
         """Prints users from all Discord servers matching provided filters"""
         try:
