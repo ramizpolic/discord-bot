@@ -45,7 +45,6 @@ $ python discord-bot info
 🎯 Environment information
 
    Version: v1.2.2
-   Author: Ramiz Polic (fhivemind)
 
 ```
 
@@ -58,7 +57,6 @@ $ discord-bot info
 🎯 Environment information
 
    Version: v1.2.2
-   Author: Ramiz Polic (fhivemind)
 
 ```
 
@@ -72,7 +70,6 @@ $ discord-bot info
 🎯 Environment information
 
    Version: v1.2.2
-   Author: Ramiz Polic (fhivemind)
 
 ```
 
