@@ -21,7 +21,7 @@ There are several requirements needed to successfully configure and use the tool
 * **Authentication token** - Discord user authentication token. Follow this [guide](https://bit.ly/31Vcno0) on how to obtain the token.
 
 ## 💭 Usage
-```bash
+```
 $ discord-bot --help
 
 Usage: discord-bot.py [OPTIONS] COMMAND [ARGS]...
