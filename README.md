@@ -21,6 +21,44 @@ There are several requirements needed to successfully configure and use the tool
 * **Authentication token** - Discord user authentication token. Follow this [guide](https://bit.ly/31Vcno0) on how to obtain the token.
 
 ## 💭 Usage
+```bash
+$ discord-bot --help
+
+Usage: discord-bot.py [OPTIONS] COMMAND [ARGS]...
+
+  Discord CLI bot that programmatically controls user events. It allows
+  advanced control of Discord APIs for provided user. Initially, you will
+  have to authenticate user by providing a valid token via
+
+  $ ./discord-bot auth
+
+  Usages:
+  - Sending formatted messages to users of servers based on searched parameters
+  - Inspect users you can interact with
+
+  Notes:
+  - Users are gathered from public server text channels message history.
+    The larger the depth of messages, more users will be notified.
+    The cost of this is slower performance.
+    This is the only way to obtain list of users from servers.
+  - This tool is against Discord policies and can result in account suspension.
+  - To obtain user authentication token, follow https://bit.ly/31Vcno0
+
+Options:
+  --help  Show this message and exit.
+
+Commands:
+  frequest  Sends friend requests to users on servers matching provided
+            filters
+
+  info      Displays application information
+  init      Initializes the environment with example configs.
+  list      Lists server users matching provided filters
+  login     Authenticate user against Discord API
+  notify    Sends formatted message to server users matching provided filters
+  profile   Displays public information of currently logged user
+```
+
 There are two ways to install & use this package, either via binaries or via source code.
 * **[Source](Source)** - Use native Python source code to extend and customize the tool. Advised for advanced configuration and development.
 * **[Binaries](Binaries)** - Use OS-native binaries to interact with the tool. Best to use if you only want to consume the library.
