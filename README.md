@@ -1,6 +1,6 @@
 <h1>discord-bot</h1>
 
-Mass user spam bot for Discord written in Python. Refer below for installation and example usages. 
+Automated user bot for Discord written in Python. Refer below for installation and example usages. 
 It **strongly advised** to read the whole document before running any commands.     
 
 :warning: Please note that using the tool for outside of its indented purpose may lead to your account being banned by Discord, as stated in [Discord on Automated user accounts](https://support.discord.com/hc/en-us/articles/115002192352-Automated-user-accounts-self-bots-).
