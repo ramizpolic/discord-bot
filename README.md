@@ -38,9 +38,9 @@ Usage: discord-bot.py [OPTIONS] COMMAND [ARGS]...
 
   Notes:
   - Users are gathered from public server text channels message history.
-    The larger the depth of messages, more users will be notified.
+    The larger the depth of messages, more users will be discovered.
     The cost of this is slower performance.
-    This is the only way to obtain list of users from servers.
+    This is the only way to obtain list of users from servers without hitting API blocks.
   - This tool is against Discord policies and can result in account suspension.
   - To obtain user authentication token, follow https://bit.ly/31Vcno0
 
